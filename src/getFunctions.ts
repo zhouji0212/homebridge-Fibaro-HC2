@@ -158,10 +158,9 @@ export class GetFunctions {
         new hapCharacteristic.StatusLowBattery().UUID,
         { function: this.getStatusLowBattery, delay: 0 },
       ],
-      [new hapCharacteristic.Fan().UUID, { function: this.getFan, delay: 0 }],
       [
-        new hapCharacteristic.THERMOSTAT().UUID,
-        { function: this.getThermostat, delay: 0 },
+        new hapCharacteristic.RotationSpeed().UUID,
+        { function: this.getFanSpeed, delay: 0 },
       ],
     ]);
     this.getCurrentSecuritySystemStateMapping = new Map([
@@ -590,7 +589,10 @@ export class GetFunctions {
     this.returnValue(r, callback, characteristic);
   }
   //TODO:FixFanGet
-  getFan(callback, characteristic, service, IDs, securitySystemStatus) {}
+  getFanSpeed(callback, characteristic, service, IDs, securitySystemStatus) {
+    let r = 0;
+    this.returnValue(r, callback, characteristic);
+  }
   getThermostat(callback, characteristic, service, IDs, securitySystemStatus) {}
 
   updateHomeKitColorFromHomeCenter(color, service) {

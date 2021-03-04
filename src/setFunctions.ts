@@ -58,8 +58,8 @@ export class SetFunctions {
         new hapCharacteristic.SecuritySystemTargetState().UUID,
         this.setSecuritySystemTargetState,
       ],
-      [new hapCharacteristic.Fan().UUID, this.setFan],
-      [new hapCharacteristic.THERMOSTAT().UUID, this.setThemostat],
+      [new hapCharacteristic.RotationSpeed().UUID, this.setFanSpeed],
+      //[new hapCharacteristic.THERMOSTAT().UUID, this.setThermostat],
     ]);
 
     this.getTargetSecuritySystemSceneMapping = new Map([
@@ -307,9 +307,11 @@ export class SetFunctions {
     this.scene(sceneID);
   }
   //TODO:温控器完善
-  setThemostat(value, callback, context, characteristic, service, IDs) {}
+  setThermostat(value, callback, context, characteristic, service, IDs) {}
   //TODO:FixFan
-  setFan(value, callback, context, characteristic, service, IDs) {}
+  setFanSpeed(value, callback, context, characteristic, service, IDs) {
+    let fanspeed = 0;
+  }
   updateHomeCenterColorFromHomeKit(h, s, v, service) {
     if (h != null) service.HSBValue.hue = h;
     if (s != null) service.HSBValue.saturation = s;
